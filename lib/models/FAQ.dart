@@ -1,19 +1,41 @@
-class FAQ {
-  FAQ(this.title, this.body, [this.isExpanded = false]);
+import 'dart:convert';
 
-  String title;
-  String body;
+import 'package:edu_prof_app_flutter/global.dart';
+import 'package:http/http.dart' as http;
+
+class FAQ {
+  int? id;
+  String? q;
+  String? a;
   bool isExpanded;
 
+  FAQ({this.id, this.q, this.a, this.isExpanded = false});
+
+  FAQ.fromJson(Map<String, dynamic> json) : isExpanded = false {
+    id = json['id'];
+    q = json['q'];
+    a = json['a'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['q'] = this.q;
+    data['a'] = this.a;
+    return data;
+  }
+
   static Future<List<FAQ>> getSteps() async {
-    var _items = [
-      FAQ('Как выбрать куда поступать ?',
-          'Некоторые абитуриенты при выборе профессии опираются на престижность и популярность. Ни для кого не секрет, что в нашей стране работа, связанная с физическим трудом, считается непрестижной и подходящей лишь для тех, кого природа якобы не наградила выдающимися умственными способностями. Именно поэтому большая часть школьных выпускников метит в юристы, экономисты, журналисты и т.д., а после окончания вуза с трудом находит работу по специальности. Представителей же «непрестижных» рабочих специальностей довольно мало, однако их услуги востребованы и высоко оплачиваются.'),
-      FAQ('Какая разница между ССО и ПТО ?',
-          'УО ССО - это колледжи, по окончании которых учащийся получает среднее специальное образование. Раньше эти учреждения образования называли техникумами. УО ПТО - это это колледжи или лицеи, по окончании которых учащийся получает профессионально-техническое образование (рабочие специальности). Раньше эти учреждения образования называли ПТУ. Человек, получивший среднее специальное образование, - специалист более высокой квалификации - и может занимать более высокие должности.'),
-      FAQ('Куда поступить в ВУЗ после ССУЗ?',
-          'Постановлением Министерства образования Республики Беларусь N 33 от 31.03.2017 установлен перечень специальностей среднего специального образования (ССО), учебные планы которых интегрированы с учебными планами специальностей высшего образования в вузах РБ. Что это значит и какие возможности предоставляет выпускникам колледжей?'),
-    ];
-    return Future<List<FAQ>>.delayed(const Duration(seconds: 2), () => _items);
+    final url = Uri.parse('https://eduapp.dionisiubrovka.online/api/v1/faq/');
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final List body = json.decode(utf8.decode(response.bodyBytes));
+      final List<FAQ> dataFetched = body.map((e) => FAQ.fromJson(e)).toList();
+
+      return dataFetched;
+    } else {
+      throw Exception('Failed to load FAQ list');
+    }
   }
 }

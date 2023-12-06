@@ -28,13 +28,19 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => HomePage(),
+        // ignore: prefer_const_constructors
+        '/': (context) => const HomePage(),
+        // ignore: prefer_const_constructors
         '/favorite': (context) => FavoritePage(),
+        // ignore: prefer_const_constructors
         '/establishment': (context) => EstablishmentListPage(),
+        // ignore: prefer_const_constructors
         '/specialty': (context) => SpecialtyListPage(),
+        // ignore: prefer_const_constructors
         '/events': (context) => EventsPage(),
         // ignore: prefer_const_constructors
         '/profftest': (context) => ProffTest(),
+        // ignore: prefer_const_constructors
         '/faq': (context) => FAQPage(),
       },
     );

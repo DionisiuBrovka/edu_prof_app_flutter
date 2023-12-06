@@ -88,7 +88,7 @@ class _FAQExtendedListState extends State<FAQExtendedList> {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  faqItem.title,
+                  faqItem.q ?? '',
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge!
@@ -102,7 +102,7 @@ class _FAQExtendedListState extends State<FAQExtendedList> {
                 const Divider(),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(faqItem.body),
+                  child: Text(faqItem.a ?? ''),
                 )
               ],
             ),
