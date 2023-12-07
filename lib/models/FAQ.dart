@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:edu_prof_app_flutter/global.dart';
 import 'package:http/http.dart' as http;
 
 class FAQ {

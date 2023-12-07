@@ -1,6 +1,7 @@
 import 'package:edu_prof_app_flutter/elements/MapEst.dart';
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
 import 'package:edu_prof_app_flutter/listViews/EstablishmentListView.dart';
+import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolder.dart';
 import 'package:flutter/material.dart';
 
 class EstablishmentListPage extends StatefulWidget {
@@ -35,7 +36,7 @@ class _EstablishmentListPageState extends State<EstablishmentListPage> {
         ),
         body: const TabBarView(
           physics: NeverScrollableScrollPhysics(),
-          children: [EstablishmentListView(), MapEst()],
+          children: [EstablishmentViewHolder(), MapEst()],
         ),
         drawer: const NavBar(),
       ),

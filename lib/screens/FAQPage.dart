@@ -19,38 +19,42 @@ class _FAQPageState extends State<FAQPage> {
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
       body: ListView(
-        children: <Widget>[
+        children: [
           Image.asset(
             "assets/faq-back.jpg",
             height: 150,
-            width: double.infinity,
+            // width: double.infinity,
             fit: BoxFit.cover,
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-                "Этот блок помогает абитуриентам получить необходимую информацию о поступлении, учебных программах, сроках и процедурах. В блоке 'Вопрос-ответ' пользователь может задать свой вопрос, используя удобный интерфейс приложения."),
+          Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                    "Этот блок помогает абитуриентам получить необходимую информацию о поступлении, учебных программах, сроках и процедурах. В блоке 'Вопрос-ответ' пользователь может задать свой вопрос, используя удобный интерфейс приложения."),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  "Частые вопросы",
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ),
+              const Divider(),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: FutureBuilder(
+                    future: FAQ.getSteps(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        return FAQExtendedList(FAQlist: snapshot.data ?? []);
+                      } else {
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                    },
+                  ))
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "Частые вопросы",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ),
-          const Divider(),
-          Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FutureBuilder(
-                future: FAQ.getSteps(),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return FAQExtendedList(FAQlist: snapshot.data ?? []);
-                  } else {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-                },
-              ))
         ],
       ),
       drawer: const NavBar(),

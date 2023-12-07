@@ -12,7 +12,7 @@ class _EstablishmentListViewState extends State<EstablishmentListView> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: Establishment.getSteps(),
+        future: Establishment.fetchFromAPI(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Column(
@@ -78,7 +78,7 @@ class _EstablismentCardState extends State<EstablismentCard> {
           child: AspectRatio(
             aspectRatio: 1.0,
             child: Image.network(
-              widget.e.icon,
+              "https://eduapp.dionisiubrovka.online/${widget.e.icon}",
               fit: BoxFit.cover,
               errorBuilder: (context, obj, e) {
                 return Image.asset(
