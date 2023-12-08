@@ -24,6 +24,22 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/mascot.png"),
+                          fit: BoxFit.cover,
+                          alignment: Alignment(0.5, -2)),
+                    ),
+                    child: const SizedBox(
+                      width: double.infinity,
+                      height: 400,
+                      child: Center(
+                        child: Card(
+                          child: Text(''),
+                        ),
+                      ),
+                    )),
                 FilledButton.icon(
                     onPressed: () => {},
                     icon: const Icon(Icons.star_outlined),

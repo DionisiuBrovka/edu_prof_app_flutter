@@ -41,6 +41,9 @@ dependencies:
   table_calendar: ^3.0.9
   intl: ^0.18.1
   http: ^1.1.2
+  flutter_html: ^3.0.0-beta.2
+  flutter_layout_grid: ^2.0.5
+  flutter_html_table: ^3.0.0-beta.2
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +73,7 @@ flutter:
     - assets/faq-back.jpg
     - assets/pin-location.webp
     - assets/2032555.png
+    - assets/mascot.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

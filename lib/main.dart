@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         // ignore: prefer_const_constructors
-        '/': (context) => const HomePage(),
+        '/': (context) => HomePage(),
         // ignore: prefer_const_constructors
         '/favorite': (context) => FavoritePage(),
         // ignore: prefer_const_constructors

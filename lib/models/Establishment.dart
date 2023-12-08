@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:edu_prof_app_flutter/models/Event.dart';
 import 'package:edu_prof_app_flutter/models/Gallery.dart';
-import 'package:edu_prof_app_flutter/models/Speciality.dart';
+import 'package:edu_prof_app_flutter/models/Specialty.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -10,7 +10,7 @@ class Establishment {
   int id;
   List<Events>? events;
   List<Gallery>? gallery;
-  List<Speciality>? specialty;
+  List<Specialty>? specialty;
   String title;
   String? shortTitle;
   String? desc;
@@ -71,9 +71,9 @@ class Establishment {
       });
     }
     if (json['specialty'] != null) {
-      specialty = <Speciality>[];
+      specialty = <Specialty>[];
       json['specialty'].forEach((v) {
-        specialty!.add(Speciality.fromJson(v));
+        specialty!.add(Specialty.fromJson(v));
       });
     }
 

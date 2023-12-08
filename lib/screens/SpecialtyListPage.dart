@@ -1,4 +1,6 @@
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
+import 'package:edu_prof_app_flutter/models/Specialty.dart';
+import 'package:edu_prof_app_flutter/viewHolders/SpecialtyViewHolder.dart';
 import 'package:flutter/material.dart';
 
 class SpecialtyListPage extends StatefulWidget {
@@ -12,7 +14,7 @@ class _SpecialtyListPageState extends State<SpecialtyListPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       initialIndex: 0,
       child: Scaffold(
         appBar: AppBar(
@@ -24,6 +26,9 @@ class _SpecialtyListPageState extends State<SpecialtyListPage> {
             unselectedLabelColor: Theme.of(context).primaryColorLight,
             tabs: const [
               Tab(
+                text: 'Все',
+              ),
+              Tab(
                 text: 'ССО',
               ),
               Tab(
@@ -33,7 +38,17 @@ class _SpecialtyListPageState extends State<SpecialtyListPage> {
           ),
         ),
         body: const TabBarView(
-          children: [Center(), Center()],
+          children: [
+            SpecialtyViewHolder(
+              listDispatcher: Specialty.fetchAllFromAPI,
+            ),
+            SpecialtyViewHolder(
+              listDispatcher: Specialty.fetchSSOFromAPI,
+            ),
+            SpecialtyViewHolder(
+              listDispatcher: Specialty.fetchPTOFromAPI,
+            ),
+          ],
         ),
         drawer: const NavBar(),
       ),
