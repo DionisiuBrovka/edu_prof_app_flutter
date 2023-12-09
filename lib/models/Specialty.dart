@@ -71,11 +71,11 @@ class Specialty {
   }
 
   static Future<List<Specialty>> fetchSSOFromAPI() async {
-    return fetch(ApiController.getSpecialtyURL());
+    return fetch(ApiController.getSpecialtySSOURL());
   }
 
   static Future<List<Specialty>> fetchPTOFromAPI() async {
-    return fetch(ApiController.getSpecialtyURL());
+    return fetch(ApiController.getSpecialtyPTOURL());
   }
 
   static Future<List<Specialty>> fetch(Uri uriForFetch) async {

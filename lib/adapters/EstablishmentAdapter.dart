@@ -37,17 +37,17 @@ class _EstablishmentAdapterState extends State<EstablishmentAdapter> {
             .textTheme
             .labelSmall!
             .copyWith(color: const Color.fromARGB(255, 120, 120, 120)),
-        trailing: IconButton(
-          icon: widget.establishment.isFavorite
-              ? const Icon(Icons.star_rate)
-              : const Icon(Icons.star_border),
-          onPressed: () {
-            setState(() {
-              widget.establishment.isFavorite =
-                  !widget.establishment.isFavorite;
-            });
-          },
-        ),
+        // trailing: IconButton(
+        //   icon: widget.establishment.isFavorite
+        //       ? const Icon(Icons.star_rate)
+        //       : const Icon(Icons.star_border),
+        //   onPressed: () {
+        //     setState(() {
+        //       widget.establishment.isFavorite =
+        //           !widget.establishment.isFavorite;
+        //     });
+        //   },
+        // ),
       ),
     );
   }

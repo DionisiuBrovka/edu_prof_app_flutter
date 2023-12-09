@@ -27,6 +27,8 @@ class Establishment {
   String? prev;
   String? promoMedio;
   String? coords;
+  double? latitude;
+  double? longitude;
   bool isFavorite;
 
   Establishment(
@@ -50,7 +52,9 @@ class Establishment {
       this.prev,
       this.promoMedio,
       this.coords,
-      this.isFavorite = false});
+      this.isFavorite = false,
+      this.latitude,
+      this.longitude});
 
   Establishment.fromJson(Map<String, dynamic> json)
       : id = json['id'],
@@ -90,6 +94,8 @@ class Establishment {
     prev = json['prev'];
     promoMedio = json['promo_medio'];
     coords = json['coords'];
+
+    updateCoords(json['coords']);
   }
 
   Map<String, dynamic> toJson() {
@@ -121,6 +127,10 @@ class Establishment {
     data['promo_medio'] = promoMedio;
     data['coords'] = coords;
     return data;
+  }
+
+  void updateCoords(String? argCoords) {
+    print(argCoords);
   }
 
   static Future<List<Establishment>> fetchFromAPI() async {

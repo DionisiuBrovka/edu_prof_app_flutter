@@ -20,16 +20,16 @@ class _SpecialtyAdapterState extends State<SpecialtyAdapter> {
         leading: Icon(widget.specialty.getIcon()),
         title: Text(widget.specialty.title),
         subtitle: Text(widget.specialty.code),
-        trailing: IconButton(
-          icon: widget.specialty.isFavorite
-              ? const Icon(Icons.star_rate)
-              : const Icon(Icons.star_border),
-          onPressed: () {
-            setState(() {
-              widget.specialty.isFavorite = !widget.specialty.isFavorite;
-            });
-          },
-        ),
+        // trailing: IconButton(
+        //   icon: widget.specialty.isFavorite
+        //       ? const Icon(Icons.star_rate)
+        //       : const Icon(Icons.star_border),
+        //   onPressed: () {
+        //     setState(() {
+        //       widget.specialty.isFavorite = !widget.specialty.isFavorite;
+        //     });
+        //   },
+        // ),
       ),
     );
   }
