@@ -131,6 +131,11 @@ class Establishment {
 
   void updateCoords(String? argCoords) {
     print(argCoords);
+    if (argCoords != null) {
+      var t = argCoords.split(', ');
+      this.latitude = double.parse(t[0]);
+      this.longitude = double.parse(t[1]);
+    }
   }
 
   static Future<List<Establishment>> fetchFromAPI() async {

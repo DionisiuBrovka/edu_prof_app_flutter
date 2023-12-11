@@ -35,9 +35,13 @@ class _MapEstState extends State<MapEst> {
                   image:
                       BitmapDescriptor.fromAssetImage('assets/2032555.png'))),
               mapId: MapObjectId(e.id.toString()),
-              point: const Point(latitude: 53.9, longitude: 27.5667),
+              point: Point(latitude: e.latitude!, longitude: e.longitude!),
               text: PlacemarkText(
-                  text: e.title, style: PlacemarkTextStyle(offset: 70))))
+                  text: e.title,
+                  style: const PlacemarkTextStyle(
+                      offset: 10,
+                      size: 10,
+                      placement: TextStylePlacement.right))))
           .toList(),
       onMapCreated: (controller) {
         controller.moveCamera(CameraUpdate.newCameraPosition(
