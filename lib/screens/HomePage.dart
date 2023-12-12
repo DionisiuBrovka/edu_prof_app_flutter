@@ -9,6 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final String test = "## dsssadasdasds   ";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,42 +19,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
-      body: ListView(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/mascot.png"),
-                          fit: BoxFit.cover,
-                          alignment: Alignment(0.5, -2)),
-                    ),
-                    child: const SizedBox(
-                      width: double.infinity,
-                      height: 400,
-                      child: Center(
-                        child: Card(
-                          child: Text(''),
-                        ),
-                      ),
-                    )),
-                FilledButton.icon(
-                    onPressed: () => {},
-                    icon: const Icon(Icons.star_outlined),
-                    label: const Text('Избраное')),
-                FilledButton.icon(
-                    onPressed: () => {},
-                    icon: const Icon(Icons.account_balance),
-                    label: const Text('Учреждения образования')),
-              ],
-            ),
-          ),
-        ],
-      ),
+      body: const Center(),
       drawer: const NavBar(),
     );
   }
