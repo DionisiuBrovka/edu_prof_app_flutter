@@ -49,33 +49,6 @@ class _FAQPageState extends State<FAQPage> {
               )
             ],
           )),
-
-      // body: Center(
-      //   child: SizedBox(
-      //     width: 980,
-      //     child: ListView(
-      //       children: [
-      //         Image.asset(
-      //           "assets/faq-back.jpg",
-      //           height: 150,
-      //           // width: double.infinity,
-      //           fit: BoxFit.cover,
-      //         ),
-      //         Column(
-      //           children: [
-      //             const Padding(
-      //               padding: EdgeInsets.all(8.0),
-      //               child: Text(
-      //                   "Этот блок помогает абитуриентам получить необходимую информацию о поступлении, учебных программах, сроках и процедурах. В блоке 'Вопрос-ответ' пользователь может задать свой вопрос, используя удобный интерфейс приложения."),
-      //             ),
-      //             const Divider(),
-      //
-      //           ],
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
       drawer: const NavBar(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.question_answer),

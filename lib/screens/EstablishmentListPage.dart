@@ -24,6 +24,7 @@ class _EstablishmentListPageState extends State<EstablishmentListPage> {
           bottom: TabBar(
               labelColor: Theme.of(context).colorScheme.onPrimary,
               unselectedLabelColor: Theme.of(context).primaryColorLight,
+              tabAlignment: TabAlignment.center,
               tabs: const [
                 Tab(
                   text: 'Список',

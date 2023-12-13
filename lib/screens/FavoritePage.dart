@@ -22,6 +22,7 @@ class _FavoritePageState extends State<FavoritePage> {
           bottom: TabBar(
             labelColor: Theme.of(context).colorScheme.onPrimary,
             unselectedLabelColor: Theme.of(context).primaryColorLight,
+            tabAlignment: TabAlignment.center,
             tabs: const [
               Tab(
                 text: 'УО',

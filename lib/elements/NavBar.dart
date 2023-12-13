@@ -63,17 +63,26 @@ class NavBar extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.description),
             title: const Text('Документы для поступления'),
-            onTap: () => {},
+            onTap: () => {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/documents', ModalRoute.withName('/'))
+            },
           ),
           ListTile(
             leading: const Icon(Icons.today),
             title: const Text('Сроки подачи документов'),
-            onTap: () => {},
+            onTap: () => {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/deadlines', ModalRoute.withName('/'))
+            },
           ),
           ListTile(
             leading: const Icon(Icons.view_timeline),
             title: const Text('График работы комисии'),
-            onTap: () => {},
+            onTap: () => {
+              Navigator.pushNamedAndRemoveUntil(
+                  context, '/schedule', ModalRoute.withName('/'))
+            },
           ),
           ListTile(
             leading: const Icon(Icons.checklist),

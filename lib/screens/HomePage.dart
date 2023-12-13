@@ -1,5 +1,7 @@
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
+import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,7 +11,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final String test = "## dsssadasdasds   ";
+  final String test = """
+Добро пожаловать в приложение "Абитуриент"! Здесь вы найдете все необходимые сведения, руководства и ресурсы для успешного поступления в университет. Мы готовы помочь вам на каждом шагу пути. Удачи в вашем будущем образовании!
+
+## Разделы
+
+---
+ - Главная страница
+ - Избранное
+ - Учреждения образования
+ - Специальности
+ -  Мероприятия
+---
+
+""";
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +34,14 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
-      body: const Center(),
+      body: WideTemplate(
+        bodyNoList: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Markdown(
+            data: test,
+          ),
+        ),
+      ),
       drawer: const NavBar(),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
+import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -18,12 +19,13 @@ class _EventsPageState extends State<EventsPage> {
         backgroundColor: Theme.of(context).primaryColor,
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
-      body: TableCalendar(
-        locale: 'ru',
-        firstDay: DateTime.utc(2010, 10, 16),
-        lastDay: DateTime.utc(2030, 3, 14),
-        focusedDay: DateTime.now(),
-      ),
+      body: WideTemplate(
+          body: TableCalendar(
+              locale: 'ru',
+              firstDay: DateTime.utc(2010, 10, 16),
+              lastDay: DateTime.utc(2030, 3, 14),
+              focusedDay: DateTime.now(),
+              availableCalendarFormats: const {CalendarFormat.month: 'Month'})),
       drawer: const NavBar(),
     );
   }
