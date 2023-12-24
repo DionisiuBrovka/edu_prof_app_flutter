@@ -75,6 +75,7 @@ flutter:
     - assets/pin-location.webp
     - assets/2032555.png
     - assets/mascot.png
+    - assets/no-photo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

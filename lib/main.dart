@@ -1,13 +1,4 @@
-import 'package:edu_prof_app_flutter/screens/Deadlines.dart';
-import 'package:edu_prof_app_flutter/screens/DocumentsPage.dart';
-import 'package:edu_prof_app_flutter/screens/EstablishmentListPage.dart';
-import 'package:edu_prof_app_flutter/screens/EventsPage.dart';
-import 'package:edu_prof_app_flutter/screens/FAQPage.dart';
-import 'package:edu_prof_app_flutter/screens/FavoritePage.dart';
 import 'package:edu_prof_app_flutter/screens/HomePage.dart';
-import 'package:edu_prof_app_flutter/screens/ProffTest.dart';
-import 'package:edu_prof_app_flutter/screens/SchedulePage.dart';
-import 'package:edu_prof_app_flutter/screens/SpecialtyListPage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -29,29 +20,7 @@ class MyApp extends StatelessWidget {
             seedColor: const Color.fromARGB(255, 58, 96, 183)),
         useMaterial3: true,
       ),
-      initialRoute: '/',
-      routes: {
-        // ignore: prefer_const_constructors
-        '/': (context) => HomePage(),
-        // ignore: prefer_const_constructors
-        '/favorite': (context) => FavoritePage(),
-        // ignore: prefer_const_constructors
-        '/establishment': (context) => EstablishmentListPage(),
-        // ignore: prefer_const_constructors
-        '/specialty': (context) => SpecialtyListPage(),
-        // ignore: prefer_const_constructors
-        '/events': (context) => EventsPage(),
-        // ignore: prefer_const_constructors
-        '/documents': (context) => DocumentsPage(),
-        // ignore: prefer_const_constructors
-        '/deadlines': (context) => DeadlinesPage(),
-        // ignore: prefer_const_constructors
-        '/schedule': (context) => SchedulePage(),
-        // ignore: prefer_const_constructors
-        '/profftest': (context) => ProffTest(),
-        // ignore: prefer_const_constructors
-        '/faq': (context) => FAQPage(),
-      },
+      home: const HomePage(),
     );
   }
 }

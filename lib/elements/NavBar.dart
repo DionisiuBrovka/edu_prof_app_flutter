@@ -1,3 +1,14 @@
+import 'package:edu_prof_app_flutter/screens/DeadlinesPage.dart';
+import 'package:edu_prof_app_flutter/screens/DocumentsPage.dart';
+import 'package:edu_prof_app_flutter/screens/EstablishmentListPage.dart';
+import 'package:edu_prof_app_flutter/screens/EventsListPage.dart';
+import 'package:edu_prof_app_flutter/screens/FAQPage.dart';
+import 'package:edu_prof_app_flutter/screens/FavoritePage.dart';
+import 'package:edu_prof_app_flutter/screens/HomePage.dart';
+import 'package:edu_prof_app_flutter/screens/ProffTestPage.dart';
+import 'package:edu_prof_app_flutter/screens/SchedulePage.dart';
+import 'package:edu_prof_app_flutter/screens/SkillListPage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
@@ -20,85 +31,117 @@ class NavBar extends StatelessWidget {
                     fit: BoxFit.cover)),
           ),
           ListTile(
-            leading: const Icon(Icons.home),
-            title: const Text('Главная'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/', ModalRoute.withName('/'))
-            },
-          ),
+              leading: const Icon(Icons.home),
+              title: const Text('Главная'),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                    MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                  return HomePage();
+                }));
+              }),
           ListTile(
             leading: const Icon(Icons.star_outlined),
             title: const Text('Избраное'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/favorite', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return FavoritePage();
+              }));
             },
           ),
           ListTile(
             leading: const Icon(Icons.account_balance),
             title: const Text('Учреждение образования'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/establishment', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return EstablishmentListPage();
+              }));
             },
           ),
           ListTile(
             leading: const Icon(Icons.group),
             title: const Text('Специальности'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/specialty', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return SkillListPage();
+              }));
             },
           ),
           ListTile(
             leading: const Icon(Icons.calendar_month),
             title: const Text('Мероприятия'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/events', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return EventsListPage();
+              }));
             },
           ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.description),
             title: const Text('Документы для поступления'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/documents', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return DocumentsPage();
+              }));
             },
           ),
           ListTile(
             leading: const Icon(Icons.today),
             title: const Text('Сроки подачи документов'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/deadlines', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return DeadlinesPage();
+              }));
             },
           ),
           ListTile(
             leading: const Icon(Icons.view_timeline),
             title: const Text('График работы комисии'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/schedule', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return SchedulePage();
+              }));
             },
           ),
           ListTile(
             leading: const Icon(Icons.checklist),
             title: const Text('Профорентационный тест'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/profftest', ModalRoute.withName('/'))
+            onTap: () {
+              if (kIsWeb) {
+              } else {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(
+                    MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                  return ProffTestPage();
+                }));
+              }
             },
           ),
           const Divider(),
           ListTile(
             leading: const Icon(Icons.question_answer_outlined),
             title: const Text('Вопрос ответ'),
-            onTap: () => {
-              Navigator.pushNamedAndRemoveUntil(
-                  context, '/faq', ModalRoute.withName('/'))
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+                return FAQPage();
+              }));
             },
           ),
           ListTile(
@@ -109,6 +152,7 @@ class NavBar extends StatelessWidget {
                   context: context,
                   applicationName: 'Абитуриент',
                   applicationVersion: '0.0.1a',
+                  children: [Text('разработал: Бровка Д.С.')],
                   applicationIcon: const Icon(Icons.ads_click_rounded))
             },
           ),

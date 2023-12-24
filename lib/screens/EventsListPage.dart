@@ -3,14 +3,14 @@ import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class EventsPage extends StatefulWidget {
-  const EventsPage({super.key});
+class EventsListPage extends StatefulWidget {
+  const EventsListPage({super.key});
 
   @override
-  State<EventsPage> createState() => _EventsPageState();
+  State<EventsListPage> createState() => _EventsListPageState();
 }
 
-class _EventsPageState extends State<EventsPage> {
+class _EventsListPageState extends State<EventsListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

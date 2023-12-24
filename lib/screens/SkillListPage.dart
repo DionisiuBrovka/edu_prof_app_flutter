@@ -1,16 +1,16 @@
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
-import 'package:edu_prof_app_flutter/models/Specialty.dart';
-import 'package:edu_prof_app_flutter/viewHolders/SpecialtyViewHolder.dart';
+import 'package:edu_prof_app_flutter/models/Skill.dart';
+import 'package:edu_prof_app_flutter/viewHolders/SkillViewHolder.dart';
 import 'package:flutter/material.dart';
 
-class SpecialtyListPage extends StatefulWidget {
-  const SpecialtyListPage({super.key});
+class SkillListPage extends StatefulWidget {
+  const SkillListPage({super.key});
 
   @override
-  State<SpecialtyListPage> createState() => _SpecialtyListPageState();
+  State<SkillListPage> createState() => _SkillListPageState();
 }
 
-class _SpecialtyListPageState extends State<SpecialtyListPage> {
+class _SkillListPageState extends State<SkillListPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -40,14 +40,14 @@ class _SpecialtyListPageState extends State<SpecialtyListPage> {
         ),
         body: const TabBarView(
           children: [
-            SpecialtyViewHolder(
-              listDispatcher: Specialty.fetchAllFromAPI,
+            SkillViewHolder(
+              listDispatcher: Skill.fetchAllFromAPI,
             ),
-            SpecialtyViewHolder(
-              listDispatcher: Specialty.fetchSSOFromAPI,
+            SkillViewHolder(
+              listDispatcher: Skill.fetchSSOFromAPI,
             ),
-            SpecialtyViewHolder(
-              listDispatcher: Specialty.fetchPTOFromAPI,
+            SkillViewHolder(
+              listDispatcher: Skill.fetchPTOFromAPI,
             ),
           ],
         ),

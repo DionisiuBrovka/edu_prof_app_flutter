@@ -3,14 +3,14 @@ import 'package:edu_prof_app_flutter/elements/NavigationControls.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class ProffTest extends StatefulWidget {
-  const ProffTest({super.key});
+class ProffTestPage extends StatefulWidget {
+  const ProffTestPage({super.key});
 
   @override
-  State<ProffTest> createState() => _ProffTestState();
+  State<ProffTestPage> createState() => _ProffTestPageState();
 }
 
-class _ProffTestState extends State<ProffTest> {
+class _ProffTestPageState extends State<ProffTestPage> {
   late final WebViewController controller;
 
   @override
