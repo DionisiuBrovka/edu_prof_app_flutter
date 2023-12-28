@@ -1,5 +1,8 @@
 import 'package:edu_prof_app_flutter/elements/EstablishmentsMap.dart';
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
+import 'package:edu_prof_app_flutter/models/Establishment.dart';
+import 'package:edu_prof_app_flutter/templates/CustomSearchBar.dart';
+import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
 import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolder.dart';
 import 'package:flutter/material.dart';
 
@@ -34,9 +37,16 @@ class _EstablishmentListPageState extends State<EstablishmentListPage> {
                 )
               ]),
         ),
-        body: const TabBarView(
-          physics: NeverScrollableScrollPhysics(),
-          children: [EstablishmentViewHolder(), EstablishmentsMap()],
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            WideTemplate(
+                headFixed: const CustomSearchBar(),
+                body: EstablishmentViewHolder(
+                  listDispatcher: Establishment.getAllObjectsList(),
+                )),
+            const EstablishmentsMap()
+          ],
         ),
         drawer: const NavBar(),
       ),

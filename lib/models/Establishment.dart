@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:edu_prof_app_flutter/api/ApiController.dart';
 import 'package:edu_prof_app_flutter/models/Event.dart';
 import 'package:edu_prof_app_flutter/models/Gallery.dart';
 import 'package:edu_prof_app_flutter/models/Specialty.dart';
@@ -133,15 +134,21 @@ class Establishment {
     print(argCoords);
     if (argCoords != null) {
       var t = argCoords.split(', ');
-      this.latitude = double.parse(t[0]);
-      this.longitude = double.parse(t[1]);
+      latitude = double.parse(t[0]);
+      longitude = double.parse(t[1]);
     }
   }
 
-  static Future<List<Establishment>> fetchFromAPI() async {
-    final url =
-        Uri.parse('https://eduapp.dionisiubrovka.online/api/v1/establishment/');
-    final response = await http.get(url);
+  static Future<List<Establishment>> getAllObjectsList() async {
+    return fetchList(ApiController.getAPIUri('establishment/'));
+  }
+
+  static Future<List<Establishment>> getSkillRelatedObjectsList(int pk) async {
+    return fetchList(ApiController.getAPIUri('skill/$pk/est/'));
+  }
+
+  static Future<List<Establishment>> fetchList(Uri uriForFetch) async {
+    final response = await http.get(uriForFetch);
 
     if (response.statusCode == 200) {
       final List body = json.decode(utf8.decode(response.bodyBytes));
@@ -150,7 +157,21 @@ class Establishment {
 
       return dataFetched;
     } else {
-      throw Exception('Failed to load FAQ list');
+      throw Exception('Failed to load Skill list !!!');
+    }
+  }
+
+  static Future<Establishment> fetchInstance(Uri uriForFetch) async {
+    final response = await http.get(uriForFetch);
+    print(response.statusCode);
+
+    if (response.statusCode == 200) {
+      final body = json.decode(utf8.decode(response.bodyBytes));
+      final Establishment dataFetched = Establishment.fromJson(body);
+
+      return dataFetched;
+    } else {
+      throw Exception('Failed to load Skill !!!');
     }
   }
 }

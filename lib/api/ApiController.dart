@@ -1,33 +1,10 @@
 class ApiController {
-  static String apiRoot = "eduapp.dionisiubrovka.online";
+  static const String apiRoot = "eduapp.dionisiubrovka.online";
+  static const String apiVersion = "api/v1/";
 
   ApiController();
 
-  static Uri getRootURL() {
-    return Uri.https(apiRoot);
-  }
-
-  static Uri getSpecialtyURL() {
-    return Uri.https(apiRoot, 'api/v1/speciality/');
-  }
-
-  static Uri getSpecialtySSOURL() {
-    return Uri.https(apiRoot, 'api/v1/speciality/sso/');
-  }
-
-  static Uri getSpecialtyPTOURL() {
-    return Uri.https(apiRoot, 'api/v1/speciality/pto/');
-  }
-
-  static Uri getSkillURL() {
-    return Uri.https(apiRoot, 'api/v1/skill/linked/');
-  }
-
-  static Uri getSkillSSOURL() {
-    return Uri.https(apiRoot, 'api/v1/skill/linked/sso/');
-  }
-
-  static Uri getSkillPTOURL() {
-    return Uri.https(apiRoot, 'api/v1/skill/linked/pto/');
+  static Uri getAPIUri(String url) {
+    return Uri.https(apiRoot, "$apiVersion$url");
   }
 }

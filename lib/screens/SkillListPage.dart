@@ -38,16 +38,16 @@ class _SkillListPageState extends State<SkillListPage> {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
             SkillViewHolder(
-              listDispatcher: Skill.fetchAllFromAPI,
+              listDispatcher: Skill.getAllObjectsList(),
             ),
             SkillViewHolder(
-              listDispatcher: Skill.fetchSSOFromAPI,
+              listDispatcher: Skill.getSSOObjectsList(),
             ),
             SkillViewHolder(
-              listDispatcher: Skill.fetchPTOFromAPI,
+              listDispatcher: Skill.getPTOObjectsList(),
             ),
           ],
         ),

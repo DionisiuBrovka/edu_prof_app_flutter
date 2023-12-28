@@ -14,25 +14,25 @@ class EstablishmentAdapter extends StatefulWidget {
 class _EstablishmentAdapterState extends State<EstablishmentAdapter> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => {
-        Navigator.of(context).push(MaterialPageRoute<dynamic>(
-          builder: (BuildContext context) {
-            return EstablishmentsDetailPage(
-              uID: widget.establishment.id,
-              title: widget.establishment.title,
-            );
-          },
-        ))
-      },
-      child: Card(
-        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      child: InkWell(
+        onTap: () => {
+          Navigator.of(context).push(MaterialPageRoute<dynamic>(
+            builder: (BuildContext context) {
+              return EstablishmentsDetailPage(
+                uID: widget.establishment.id,
+                title: widget.establishment.title,
+              );
+            },
+          ))
+        },
         child: ListTile(
           leading: ClipOval(
             child: AspectRatio(
               aspectRatio: 1.0,
               child: Image.network(
-                "https://eduapp.dionisiubrovka.online/${widget.establishment.icon}",
+                "https://eduapp.dionisiubrovka.online${widget.establishment.icon}",
                 fit: BoxFit.cover,
                 errorBuilder: (context, obj, e) {
                   return Image.asset(

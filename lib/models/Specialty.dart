@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_collection_literals
+// ignore_for_file: prefer_collection_literals, unused_import
 
 import 'dart:convert';
 
@@ -66,31 +66,31 @@ class Specialty {
     return data;
   }
 
-  static Future<List<Specialty>> fetchAllFromAPI() async {
-    return fetch(ApiController.getSpecialtyURL());
-  }
+  // static Future<List<Specialty>> fetchAllFromAPI() async {
+  //   return fetch(ApiController.getSpecialtyURL());
+  // }
 
-  static Future<List<Specialty>> fetchSSOFromAPI() async {
-    return fetch(ApiController.getSpecialtySSOURL());
-  }
+  // static Future<List<Specialty>> fetchSSOFromAPI() async {
+  //   return fetch(ApiController.getSpecialtySSOURL());
+  // }
 
-  static Future<List<Specialty>> fetchPTOFromAPI() async {
-    return fetch(ApiController.getSpecialtyPTOURL());
-  }
+  // static Future<List<Specialty>> fetchPTOFromAPI() async {
+  //   return fetch(ApiController.getSpecialtyPTOURL());
+  // }
 
-  static Future<List<Specialty>> fetch(Uri uriForFetch) async {
-    final response = await http.get(uriForFetch);
+  // static Future<List<Specialty>> fetch(Uri uriForFetch) async {
+  //   final response = await http.get(uriForFetch);
 
-    if (response.statusCode == 200) {
-      final List body = json.decode(utf8.decode(response.bodyBytes));
-      final List<Specialty> dataFetched =
-          body.map((e) => Specialty.fromJson(e)).toList();
+  //   if (response.statusCode == 200) {
+  //     final List body = json.decode(utf8.decode(response.bodyBytes));
+  //     final List<Specialty> dataFetched =
+  //         body.map((e) => Specialty.fromJson(e)).toList();
 
-      return dataFetched;
-    } else {
-      throw Exception('Failed to load Specialty list !!!');
-    }
-  }
+  //     return dataFetched;
+  //   } else {
+  //     throw Exception('Failed to load Specialty list !!!');
+  //   }
+  // }
 
   IconData getIcon() {
     if (icon != null) {

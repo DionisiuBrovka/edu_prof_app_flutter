@@ -17,6 +17,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      semanticLabel: "Меню навигации",
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[

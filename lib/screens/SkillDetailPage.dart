@@ -1,4 +1,9 @@
+import 'package:edu_prof_app_flutter/models/Establishment.dart';
+import 'package:edu_prof_app_flutter/models/Skill.dart';
+import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
+import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolder.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class SkillDetailPage extends StatefulWidget {
   final int uID;
@@ -19,8 +24,64 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
           backgroundColor: Theme.of(context).primaryColor,
           foregroundColor: Theme.of(context).primaryColorLight,
         ),
-        body: Center(
-          child: Text(widget.uID.toString()),
-        ));
+        body: FutureBuilder(
+            future: Skill.getObject(widget.uID),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return WideTemplate(
+                  head: Image.asset(
+                    'assets/back-skill.png',
+                    height: 150,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                  body: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          snapshot.data!.title,
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
+                        Text(
+                          snapshot.data!.code,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleLarge!
+                              .copyWith(color: Colors.grey),
+                        ),
+                        const Divider(),
+                        RichText(
+                            text: TextSpan(
+                                text: "sdsds",
+                                style: Theme.of(context).textTheme.bodyMedium,
+                                children: [TextSpan(text: "Специальность")])),
+                        Text(
+                          'Описание',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        const Divider(),
+                        MarkdownBody(data: snapshot.data!.desc ?? ''),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text(
+                          'Где можно получить специальность',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        const Divider(),
+                        EstablishmentViewHolder(
+                            listDispatcher:
+                                Establishment.getSkillRelatedObjectsList(
+                                    snapshot.data!.id)),
+                      ],
+                    ),
+                  ),
+                );
+              } else {
+                return const Center(child: CircularProgressIndicator());
+              }
+            }));
   }
 }

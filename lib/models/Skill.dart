@@ -40,19 +40,23 @@ class Skill {
     return data;
   }
 
-  static Future<List<Skill>> fetchAllFromAPI() async {
-    return fetch(ApiController.getSkillURL());
+  static Future<List<Skill>> getAllObjectsList() async {
+    return fetchList(ApiController.getAPIUri('skill/linked/'));
   }
 
-  static Future<List<Skill>> fetchSSOFromAPI() async {
-    return fetch(ApiController.getSkillSSOURL());
+  static Future<List<Skill>> getSSOObjectsList() async {
+    return fetchList(ApiController.getAPIUri('skill/linked/sso/'));
   }
 
-  static Future<List<Skill>> fetchPTOFromAPI() async {
-    return fetch(ApiController.getSkillPTOURL());
+  static Future<List<Skill>> getPTOObjectsList() async {
+    return fetchList(ApiController.getAPIUri('skill/linked/pto/'));
   }
 
-  static Future<List<Skill>> fetch(Uri uriForFetch) async {
+  static Future<Skill> getObject(int pk) async {
+    return fetchInstance(ApiController.getAPIUri('skill/$pk/'));
+  }
+
+  static Future<List<Skill>> fetchList(Uri uriForFetch) async {
     final response = await http.get(uriForFetch);
 
     if (response.statusCode == 200) {
@@ -63,6 +67,20 @@ class Skill {
       return dataFetched;
     } else {
       throw Exception('Failed to load Skill list !!!');
+    }
+  }
+
+  static Future<Skill> fetchInstance(Uri uriForFetch) async {
+    final response = await http.get(uriForFetch);
+    print(response.statusCode);
+
+    if (response.statusCode == 200) {
+      final body = json.decode(utf8.decode(response.bodyBytes));
+      final Skill dataFetched = Skill.fromJson(body);
+
+      return dataFetched;
+    } else {
+      throw Exception('Failed to load Skill !!!');
     }
   }
 }

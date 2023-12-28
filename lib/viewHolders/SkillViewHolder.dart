@@ -7,20 +7,20 @@ import 'package:flutter/material.dart';
 class SkillViewHolder extends StatelessWidget {
   const SkillViewHolder({super.key, required this.listDispatcher});
 
-  final Future<List<Skill>> Function() listDispatcher;
+  final Future<List<Skill>> listDispatcher;
 
   @override
   Widget build(BuildContext context) {
     return WideTemplate(
       headFixed: const CustomSearchBar(),
       body: FutureBuilder(
-          future: listDispatcher(),
+          future: listDispatcher,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return Column(
                 children: snapshot.data!
-                    .map((e) => SkillAdapter(
-                          skill: e,
+                    .map((item) => SkillAdapter(
+                          skill: item,
                         ))
                     .toList(),
               );
