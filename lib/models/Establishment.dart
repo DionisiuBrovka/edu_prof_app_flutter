@@ -147,6 +147,10 @@ class Establishment {
     return fetchList(ApiController.getAPIUri('skill/$pk/est/'));
   }
 
+  static Future<Establishment> getObject(int pk) async {
+    return fetchInstance(ApiController.getAPIUri('establishment/$pk/'));
+  }
+
   static Future<List<Establishment>> fetchList(Uri uriForFetch) async {
     final response = await http.get(uriForFetch);
 

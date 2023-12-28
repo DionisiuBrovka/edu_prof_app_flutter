@@ -16,6 +16,8 @@ class SkillDetailPage extends StatefulWidget {
 }
 
 class _SkillDetailPageState extends State<SkillDetailPage> {
+  bool _isFavorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +25,19 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
           title: Text('Специальность ${widget.title}'),
           backgroundColor: Theme.of(context).primaryColor,
           foregroundColor: Theme.of(context).primaryColorLight,
+          actions: [
+            IconButton(
+              icon: _isFavorite
+                  ? const Icon(Icons.star)
+                  : const Icon(Icons.star_border),
+              tooltip: 'Добавить в избранное',
+              onPressed: () {
+                setState(() {
+                  _isFavorite = !_isFavorite;
+                });
+              },
+            ),
+          ],
         ),
         body: FutureBuilder(
             future: Skill.getObject(widget.uID),
@@ -52,11 +67,9 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
                               .copyWith(color: Colors.grey),
                         ),
                         const Divider(),
-                        RichText(
-                            text: TextSpan(
-                                text: "sdsds",
-                                style: Theme.of(context).textTheme.bodyMedium,
-                                children: [TextSpan(text: "Специальность")])),
+                        const Placeholder(
+                          child: Text("Таблица параметров"),
+                        ),
                         Text(
                           'Описание',
                           style: Theme.of(context).textTheme.headlineMedium,
