@@ -23,6 +23,7 @@ class WideTemplate extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: headFixed == null ? 0 : 90),
             child: ListView(
+              shrinkWrap: true,
               children: [
                 Column(
                   children: [

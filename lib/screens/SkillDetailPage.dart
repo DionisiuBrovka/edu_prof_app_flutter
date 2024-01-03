@@ -67,8 +67,45 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
                               .copyWith(color: Colors.grey),
                         ),
                         const Divider(),
-                        const Placeholder(
-                          child: Text("Таблица параметров"),
+                        Table(
+                          border: TableBorder.all(color: Colors.black12),
+                          columnWidths: const <int, TableColumnWidth>{
+                            0: IntrinsicColumnWidth(),
+                            1: FlexColumnWidth(),
+                          },
+                          children: [
+                            TableRow(children: [
+                              const TableCell(
+                                  child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Специальность",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              )),
+                              TableCell(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(snapshot.data!.specialty.title),
+                              )),
+                            ]),
+                            TableRow(children: [
+                              const TableCell(
+                                  child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Тип",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              )),
+                              TableCell(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child:
+                                    Text(snapshot.data!.specialty.cType ?? ""),
+                              )),
+                            ]),
+                          ],
                         ),
                         Text(
                           'Описание',

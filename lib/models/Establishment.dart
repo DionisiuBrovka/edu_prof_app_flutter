@@ -1,9 +1,13 @@
 import 'dart:convert';
+import 'dart:ffi';
 
 import 'package:edu_prof_app_flutter/api/ApiController.dart';
 import 'package:edu_prof_app_flutter/models/Event.dart';
 import 'package:edu_prof_app_flutter/models/Gallery.dart';
 import 'package:edu_prof_app_flutter/models/Specialty.dart';
+import 'package:edu_prof_app_flutter/models/SvodTable.dart';
+import 'package:edu_prof_app_flutter/screens/SkillDetailPage.dart';
+import 'package:flutter/material.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -12,6 +16,7 @@ class Establishment {
   List<Events>? events;
   List<Gallery>? gallery;
   List<Specialty>? specialty;
+  List<SvodTable>? skills;
   String title;
   String? shortTitle;
   String? desc;
@@ -23,6 +28,9 @@ class Establishment {
   String? wtel;
   String? wvk;
   String? winsta;
+  String? wface;
+  String? wtwit;
+  String? wtic;
   String? wother;
   String? icon;
   String? prev;
@@ -37,6 +45,7 @@ class Establishment {
       this.events,
       this.gallery,
       this.specialty,
+      this.skills,
       required this.title,
       this.shortTitle,
       this.desc,
@@ -48,6 +57,9 @@ class Establishment {
       this.wtel,
       this.wvk,
       this.winsta,
+      this.wface,
+      this.wtwit,
+      this.wtic,
       this.wother,
       required this.icon,
       this.prev,
@@ -62,6 +74,7 @@ class Establishment {
         title = json['title'],
         adress = json['adress'],
         icon = json['icon'],
+        skills = [],
         isFavorite = false {
     if (json['events'] != null) {
       events = <Events>[];
@@ -81,6 +94,17 @@ class Establishment {
         specialty!.add(Specialty.fromJson(v));
       });
     }
+    print("prekol 1");
+    if (json['skills'] != null) {
+      print("prekol 3");
+      skills = <SvodTable>[];
+      print("prekol 4");
+      json['skills'].forEach((v) {
+        skills!.add(SvodTable.fromJson(v));
+      });
+      print("prekol 5");
+    }
+    print("prekol 2");
 
     shortTitle = json['short_title'];
     desc = json['desc'];
@@ -91,6 +115,9 @@ class Establishment {
     wtel = json['wtel'];
     wvk = json['wvk'];
     winsta = json['winsta'];
+    wface = json['wface'];
+    wtwit = json['wtwit'];
+    wtic = json['wtic'];
     wother = json['wother'];
     prev = json['prev'];
     promoMedio = json['promo_medio'];
@@ -136,6 +163,91 @@ class Establishment {
       var t = argCoords.split(', ');
       latitude = double.parse(t[0]);
       longitude = double.parse(t[1]);
+    }
+  }
+
+  List<DataRow> getSvodTableRows(BuildContext context) {
+    List<DataRow> result = [];
+    if (skills != null) {
+      for (var skill in skills!) {
+        List<Widget> skillLinksList = [];
+
+        for (var s in skill.skill) {
+          skillLinksList.add(Container(
+            height: 40,
+            child: Card(
+                color: Color.fromARGB(255, 194, 214, 248),
+                margin: EdgeInsets.only(top: 4, bottom: 4),
+                child: InkWell(
+                  onTap: () => {
+                    Navigator.of(context).push(MaterialPageRoute<dynamic>(
+                      builder: (BuildContext context) {
+                        return SkillDetailPage(
+                          uID: s.id,
+                          title: s.title,
+                        );
+                      },
+                    ))
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Row(
+                      children: [
+                        Icon(s.specialty.getIcon()),
+                        Text("${s.code} // ${s.title}"),
+                      ],
+                    ),
+                  ),
+                )),
+          ));
+        }
+
+        result.add(DataRow(cells: [
+          DataCell(Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: skillLinksList,
+          )),
+          DataCell(Text(
+            "${skill.sType} классов",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          )),
+          DataCell(Text(
+            skill.bCount != null ? skill.bCount!.toString() : " --- ",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          )),
+          DataCell(Text(
+            skill.pCount != null ? skill.pCount!.toString() : " --- ",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          )),
+          DataCell(Text(
+            skill.bAvd != null ? skill.bAvd!.toString() : " --- ",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          )),
+          DataCell(Text(
+            skill.pAvd != null ? skill.pAvd!.toString() : " --- ",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          )),
+          DataCell(Text(skill.isOpfr ? "Да \n(${skill.opfrQnic!}) " : "Нет")),
+          DataCell(Text("${skill.rule}")),
+        ]));
+      }
+      return result;
+    } else {
+      return [];
+    }
+  }
+
+  int getSvodTableRowsHeightModificator() {
+    int result = 0;
+    if (skills != null) {
+      for (var skill in skills!) {
+        for (var s in skill.skill) {
+          result += 1;
+        }
+      }
+      return result;
+    } else {
+      return 0;
     }
   }
 
