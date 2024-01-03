@@ -52,10 +52,19 @@ class DocumentsPage extends StatelessWidget {
       ),
       // ignore: prefer_const_constructors
       body: WideTemplate(
-          bodyNoList: Markdown(
-        data: _content,
-        selectable: true,
-      )),
+          head: Image.asset(
+            "assets/faq-docs.jpg",
+            height: 150,
+            // width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: MarkdownBody(
+              data: _content,
+              selectable: true,
+            ),
+          )),
       drawer: const NavBar(),
     );
   }

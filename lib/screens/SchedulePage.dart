@@ -37,11 +37,20 @@ class SchedulePage extends StatelessWidget {
       ),
       // ignore: prefer_const_constructors
       body: WideTemplate(
+          head: Image.asset(
+            "assets/faq-shudle.jpg",
+            height: 150,
+            // width: double.infinity,
+            fit: BoxFit.cover,
+          ),
           // ignore: prefer_const_constructors
-          bodyNoList: Markdown(
-        data: _content,
-        selectable: true,
-      )),
+          body: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: MarkdownBody(
+              data: _content,
+              selectable: true,
+            ),
+          )),
       drawer: const NavBar(),
     );
   }

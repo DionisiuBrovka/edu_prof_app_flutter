@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 
 import 'package:edu_prof_app_flutter/api/ApiController.dart';
 import 'package:edu_prof_app_flutter/models/Event.dart';
@@ -194,6 +193,9 @@ class Establishment {
                     child: Row(
                       children: [
                         Icon(s.specialty.getIcon()),
+                        const SizedBox(
+                          width: 8,
+                        ),
                         Text("${s.code} // ${s.title}"),
                       ],
                     ),

@@ -76,12 +76,16 @@ flutter:
   assets:
     - assets/header-back.png
     - assets/faq-back.jpg
+    - assets/faq-docs.jpg
+    - assets/faq-shudle.jpg
+    - assets/faq-time.jpg
     - assets/pin-location.webp
     - assets/2032555.png
     - assets/mascot.png
     - assets/no-photo.png
     - assets/back-skill.png
     - assets/back-est.jpg
+    - assets/fon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

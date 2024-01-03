@@ -2,6 +2,7 @@ import 'package:edu_prof_app_flutter/models/Establishment.dart';
 import 'package:edu_prof_app_flutter/models/Skill.dart';
 import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
 import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolder.dart';
+import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolderWithoutSearchBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 
@@ -121,7 +122,7 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
                           style: Theme.of(context).textTheme.headlineMedium,
                         ),
                         const Divider(),
-                        EstablishmentViewHolder(
+                        EstablishmentViewHolderWithoutSearchBar(
                             listDispatcher:
                                 Establishment.getSkillRelatedObjectsList(
                                     snapshot.data!.id)),

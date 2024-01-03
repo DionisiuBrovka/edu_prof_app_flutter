@@ -35,9 +35,15 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
       body: WideTemplate(
-        bodyNoList: Padding(
+        head: Image.asset(
+          "assets/fon.png",
+          height: 150,
+          // width: double.infinity,
+          fit: BoxFit.cover,
+        ),
+        body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Markdown(
+          child: MarkdownBody(
             data: test,
           ),
         ),

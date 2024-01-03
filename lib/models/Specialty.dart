@@ -94,14 +94,20 @@ class Specialty {
 
   IconData getIcon() {
     if (icon != null) {
-      var value = int.tryParse(icon!);
+      var value = int.tryParse(icon!, radix: 16);
+      print(value);
       if (value == null) {
-        return const IconData(0xf01ac, fontFamily: 'MaterialIcons');
+        return const IconData(0xf501,
+            fontFamily: 'FontAwesomeSolid',
+            fontPackage: 'font_awesome_flutter');
       } else {
-        return IconData(value, fontFamily: 'MaterialIcons');
+        return const IconData(0xf501,
+            fontFamily: 'FontAwesomeSolid',
+            fontPackage: 'font_awesome_flutter');
       }
     } else {
-      return const IconData(0xf01ac, fontFamily: 'MaterialIcons');
+      return const IconData(0xf508,
+          fontFamily: 'FontAwesomeSolid', fontPackage: 'font_awesome_flutter');
     }
   }
 }

@@ -10,6 +10,9 @@ import 'package:edu_prof_app_flutter/screens/SchedulePage.dart';
 import 'package:edu_prof_app_flutter/screens/SkillListPage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
+
+import 'package:url_launcher/url_launcher.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
@@ -123,7 +126,8 @@ class NavBar extends StatelessWidget {
             leading: const Icon(Icons.checklist),
             title: const Text('Профорентационный тест'),
             onTap: () {
-              if (kIsWeb) {
+              if (kIsWeb || Platform.isWindows) {
+                launchUrl(Uri.parse('https://profitest.ripo.by/public/main'));
               } else {
                 Navigator.of(context).pop();
                 Navigator.of(context).push(

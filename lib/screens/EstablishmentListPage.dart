@@ -41,10 +41,10 @@ class _EstablishmentListPageState extends State<EstablishmentListPage> {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             WideTemplate(
-                headFixed: const CustomSearchBar(),
+                //headFixed: const CustomSearchBar(),
                 body: EstablishmentViewHolder(
-                  listDispatcher: Establishment.getAllObjectsList(),
-                )),
+              listDispatcher: Establishment.getAllObjectsList(),
+            )),
             const EstablishmentsMap()
           ],
         ),
