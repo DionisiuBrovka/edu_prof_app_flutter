@@ -31,16 +31,6 @@ class _SkillAdapterState extends State<SkillAdapter> {
           leading: Icon(widget.skill.specialty.getIcon()),
           title: Text(widget.skill.title),
           subtitle: Text(widget.skill.specialty.title),
-          // trailing: IconButton(
-          //   icon: widget.specialty.isFavorite
-          //       ? const Icon(Icons.star_rate)
-          //       : const Icon(Icons.star_border),
-          //   onPressed: () {
-          //     setState(() {
-          //       widget.specialty.isFavorite = !widget.specialty.isFavorite;
-          //     });
-          //   },
-          // ),
         ),
       ),
     );

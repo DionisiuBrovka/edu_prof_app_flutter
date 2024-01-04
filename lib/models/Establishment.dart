@@ -77,33 +77,33 @@ class Establishment {
         isFavorite = false {
     if (json['events'] != null) {
       events = <Events>[];
+
       json['events'].forEach((v) {
         events!.add(Events.fromJson(v));
       });
     }
     if (json['gallery'] != null) {
       gallery = <Gallery>[];
+
       json['gallery'].forEach((v) {
         gallery!.add(Gallery.fromJson(v));
       });
     }
     if (json['specialty'] != null) {
       specialty = <Specialty>[];
+
       json['specialty'].forEach((v) {
         specialty!.add(Specialty.fromJson(v));
       });
     }
-    print("prekol 1");
+
     if (json['skills'] != null) {
-      print("prekol 3");
       skills = <SvodTable>[];
-      print("prekol 4");
+
       json['skills'].forEach((v) {
         skills!.add(SvodTable.fromJson(v));
       });
-      print("prekol 5");
     }
-    print("prekol 2");
 
     shortTitle = json['short_title'];
     desc = json['desc'];
@@ -125,39 +125,7 @@ class Establishment {
     updateCoords(json['coords']);
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    if (events != null) {
-      data['events'] = events!.map((v) => v.toJson()).toList();
-    }
-    if (gallery != null) {
-      data['gallery'] = gallery!.map((v) => v.toJson()).toList();
-    }
-    if (specialty != null) {
-      data['specialty'] = specialty!.map((v) => v.toJson()).toList();
-    }
-    data['title'] = title;
-    data['short_title'] = shortTitle;
-    data['desc'] = desc;
-    data['adress'] = adress;
-    data['tel'] = tel;
-    data['mail'] = mail;
-    data['email'] = email;
-    data['wsite'] = wsite;
-    data['wtel'] = wtel;
-    data['wvk'] = wvk;
-    data['winsta'] = winsta;
-    data['wother'] = wother;
-    data['icon'] = icon;
-    data['prev'] = prev;
-    data['promo_medio'] = promoMedio;
-    data['coords'] = coords;
-    return data;
-  }
-
   void updateCoords(String? argCoords) {
-    print(argCoords);
     if (argCoords != null) {
       var t = argCoords.split(', ');
       latitude = double.parse(t[0]);
@@ -243,9 +211,7 @@ class Establishment {
     int result = 0;
     if (skills != null) {
       for (var skill in skills!) {
-        for (var s in skill.skill) {
-          result += 1;
-        }
+        result += skill.skill.length;
       }
       return result;
     } else {
@@ -275,7 +241,7 @@ class Establishment {
 
       return dataFetched;
     } else {
-      throw Exception('Failed to load Skill list !!!');
+      throw Exception('Failed to load Establishments list !!!');
     }
   }
 
@@ -289,7 +255,7 @@ class Establishment {
 
       return dataFetched;
     } else {
-      throw Exception('Failed to load Skill !!!');
+      throw Exception('Failed to load Establisment !!!');
     }
   }
 }

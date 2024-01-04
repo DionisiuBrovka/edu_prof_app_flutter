@@ -13,7 +13,7 @@ class CustomSearchBar extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       margin: const EdgeInsets.all(16),
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: TextField(
           controller: controller,
           onChanged: onTextChanged,

@@ -48,7 +48,7 @@ class _EstablishmentViewHolderState extends State<EstablishmentViewHolder> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return const Center(child: Text('Error loading ests'));
+            return const Center(child: Text('Что то пошло не так ...'));
           } else if (snapshot.hasData) {
             return Column(
               children: snapshot.data!.isNotEmpty
@@ -72,7 +72,7 @@ class _EstablishmentViewHolderState extends State<EstablishmentViewHolder> {
                     ],
             );
           } else {
-            return const Center(child: Text('No data available'));
+            return const Center(child: Text('Что то пошло не так ...'));
           }
         },
       ),

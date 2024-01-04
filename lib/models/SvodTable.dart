@@ -51,22 +51,4 @@ class SvodTable {
     opfrQnic = json['opfr_qnic'];
     est = json['est'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['skill'] = skill.map((v) => v.toJson()).toList();
-    data['s_type'] = sType;
-    data['b_count'] = bCount;
-    data['b_long'] = bLong;
-    data['b_avd'] = bAvd;
-    data['p_count'] = pCount;
-    data['p_long'] = pLong;
-    data['p_avd'] = pAvd;
-    data['rule'] = rule;
-    data['is_opfr'] = isOpfr;
-    data['opfr_qnic'] = opfrQnic;
-    data['est'] = est;
-    return data;
-  }
 }

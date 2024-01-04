@@ -47,7 +47,7 @@ class _SkillViewHolderState extends State<SkillViewHolder> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return const Center(child: Text('Error loading skills'));
+            return const Center(child: Text('Что то пошло не так ...'));
           } else if (snapshot.hasData) {
             return Column(
               children: snapshot.data!.isNotEmpty
@@ -71,7 +71,7 @@ class _SkillViewHolderState extends State<SkillViewHolder> {
                     ],
             );
           } else {
-            return const Center(child: Text('No data available'));
+            return const Center(child: Text('Что то пошло не так ...'));
           }
         },
       ),

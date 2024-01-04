@@ -38,7 +38,6 @@ class _HomePageState extends State<HomePage> {
         head: Image.asset(
           "assets/fon.png",
           height: 150,
-          // width: double.infinity,
           fit: BoxFit.cover,
         ),
         body: Padding(

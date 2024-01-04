@@ -1,5 +1,5 @@
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
-import 'package:edu_prof_app_flutter/elements/NavigationControls.dart';
+import 'package:edu_prof_app_flutter/elements/WebViewNavigationControls.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -31,7 +31,7 @@ class _ProffTestPageState extends State<ProffTestPage> {
         backgroundColor: Theme.of(context).primaryColor,
         foregroundColor: Theme.of(context).primaryColorLight,
         actions: [
-          NavigationControls(controller: controller),
+          WebViewNavigationControls(controller: controller),
         ],
       ),
       body: WebViewWidget(

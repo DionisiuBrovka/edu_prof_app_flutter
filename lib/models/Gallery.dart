@@ -12,13 +12,4 @@ class Gallery {
     desc = json['desc'];
     est = json['est'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['photo'] = photo;
-    data['desc'] = desc;
-    data['est'] = est;
-    return data;
-  }
 }

@@ -28,18 +28,6 @@ class Skill {
     desc = json['desc'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    data['specialty'] = specialty.toJson();
-
-    data['code'] = code;
-    data['title'] = title;
-    data['searchtag'] = searchtag;
-    data['desc'] = desc;
-    return data;
-  }
-
   static Future<List<Skill>> getAllObjectsList() async {
     return fetchList(ApiController.getAPIUri('skill/linked/'));
   }
@@ -72,7 +60,6 @@ class Skill {
 
   static Future<Skill> fetchInstance(Uri uriForFetch) async {
     final response = await http.get(uriForFetch);
-    print(response.statusCode);
 
     if (response.statusCode == 200) {
       final body = json.decode(utf8.decode(response.bodyBytes));

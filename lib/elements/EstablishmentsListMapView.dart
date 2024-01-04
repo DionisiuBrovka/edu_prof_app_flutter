@@ -5,14 +5,15 @@ import 'package:latlong2/latlong.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 
-class EstablishmentsMap extends StatefulWidget {
-  const EstablishmentsMap({super.key});
+class EstablishmentsListMapView extends StatefulWidget {
+  const EstablishmentsListMapView({super.key});
 
   @override
-  State<EstablishmentsMap> createState() => _EstablishmentsMapState();
+  State<EstablishmentsListMapView> createState() =>
+      _EstablishmentsListMapViewState();
 }
 
-class _EstablishmentsMapState extends State<EstablishmentsMap>
+class _EstablishmentsListMapViewState extends State<EstablishmentsListMapView>
     with TickerProviderStateMixin {
   late final _animatedMapController = AnimatedMapController(vsync: this);
 

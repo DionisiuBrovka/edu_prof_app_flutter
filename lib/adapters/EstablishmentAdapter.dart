@@ -1,3 +1,4 @@
+import 'package:edu_prof_app_flutter/api/ApiController.dart';
 import 'package:edu_prof_app_flutter/models/Establishment.dart';
 import 'package:edu_prof_app_flutter/screens/EstablishmentsDetailPage.dart';
 import 'package:flutter/material.dart';
@@ -28,38 +29,41 @@ class _EstablishmentAdapterState extends State<EstablishmentAdapter> {
           ))
         },
         child: ListTile(
-          leading: ClipOval(
-            child: AspectRatio(
-              aspectRatio: 1.0,
-              child: Image.network(
-                "https://eduapp.dionisiubrovka.online${widget.establishment.icon}",
-                fit: BoxFit.cover,
-                errorBuilder: (context, obj, e) {
-                  return Image.asset(
-                    'assets/no-photo.png',
-                    fit: BoxFit.cover,
-                  );
-                },
-              ),
-            ),
-          ),
+          leading: EstablishmentAdapterLeading(widget: widget),
           title: Text(widget.establishment.title),
           subtitle: Text(widget.establishment.adress),
           subtitleTextStyle: Theme.of(context)
               .textTheme
               .labelSmall!
               .copyWith(color: const Color.fromARGB(255, 120, 120, 120)),
-          // trailing: IconButton(
-          //   icon: widget.establishment.isFavorite
-          //       ? const Icon(Icons.star_rate)
-          //       : const Icon(Icons.star_border),
-          //   onPressed: () {
-          //     setState(() {
-          //       widget.establishment.isFavorite =
-          //           !widget.establishment.isFavorite;
-          //     });
-          //   },
-          // ),
+        ),
+      ),
+    );
+  }
+}
+
+class EstablishmentAdapterLeading extends StatelessWidget {
+  const EstablishmentAdapterLeading({
+    super.key,
+    required this.widget,
+  });
+
+  final EstablishmentAdapter widget;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipOval(
+      child: AspectRatio(
+        aspectRatio: 1 / 1,
+        child: Image.network(
+          "${ApiController.apiRootUristring}${widget.establishment.icon}",
+          fit: BoxFit.cover,
+          errorBuilder: (context, obj, e) {
+            return Image.asset(
+              'assets/no-photo.png',
+              fit: BoxFit.cover,
+            );
+          },
         ),
       ),
     );

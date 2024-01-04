@@ -1,17 +1,17 @@
 import 'package:edu_prof_app_flutter/models/Establishment.dart';
 import 'package:flutter/material.dart';
 
-class EstablishmentsSkillTable extends StatefulWidget {
-  const EstablishmentsSkillTable({super.key, required this.establishment});
+class EstablishmentSkillTable extends StatefulWidget {
+  const EstablishmentSkillTable({super.key, required this.establishment});
 
   final Establishment establishment;
 
   @override
-  State<EstablishmentsSkillTable> createState() =>
+  State<EstablishmentSkillTable> createState() =>
       _EstablishmentsSkillTableState();
 }
 
-class _EstablishmentsSkillTableState extends State<EstablishmentsSkillTable> {
+class _EstablishmentsSkillTableState extends State<EstablishmentSkillTable> {
   int _lenght = 0;
 
   @override

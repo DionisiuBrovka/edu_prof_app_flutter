@@ -157,7 +157,7 @@ class NavBar extends StatelessWidget {
                   context: context,
                   applicationName: 'Абитуриент',
                   applicationVersion: '0.0.1a',
-                  children: [Text('разработал: Бровка Д.С.')],
+                  children: [const Text('разработал: Бровка Д.С.')],
                   applicationIcon: const Icon(Icons.ads_click_rounded))
             },
           ),

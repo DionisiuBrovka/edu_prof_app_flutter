@@ -49,49 +49,6 @@ class Specialty {
     icon = json['icon'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
-    if (group != null) {
-      data['group'] = group!.toJson();
-    }
-    data['c_type'] = cType;
-    data['s_type'] = sType;
-    data['code'] = code;
-    data['title'] = title;
-    data['skill'] = skill;
-    data['prev'] = prev;
-    data['desc'] = desc;
-    data['icon'] = icon;
-    return data;
-  }
-
-  // static Future<List<Specialty>> fetchAllFromAPI() async {
-  //   return fetch(ApiController.getSpecialtyURL());
-  // }
-
-  // static Future<List<Specialty>> fetchSSOFromAPI() async {
-  //   return fetch(ApiController.getSpecialtySSOURL());
-  // }
-
-  // static Future<List<Specialty>> fetchPTOFromAPI() async {
-  //   return fetch(ApiController.getSpecialtyPTOURL());
-  // }
-
-  // static Future<List<Specialty>> fetch(Uri uriForFetch) async {
-  //   final response = await http.get(uriForFetch);
-
-  //   if (response.statusCode == 200) {
-  //     final List body = json.decode(utf8.decode(response.bodyBytes));
-  //     final List<Specialty> dataFetched =
-  //         body.map((e) => Specialty.fromJson(e)).toList();
-
-  //     return dataFetched;
-  //   } else {
-  //     throw Exception('Failed to load Specialty list !!!');
-  //   }
-  // }
-
   IconData getIcon() {
     if (icon != null) {
       var value = int.tryParse(icon!, radix: 16);

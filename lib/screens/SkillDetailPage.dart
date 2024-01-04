@@ -1,7 +1,7 @@
+import 'package:edu_prof_app_flutter/elements/SkillCommonDataTableView.dart';
 import 'package:edu_prof_app_flutter/models/Establishment.dart';
 import 'package:edu_prof_app_flutter/models/Skill.dart';
 import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
-import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolder.dart';
 import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolderWithoutSearchBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
@@ -68,45 +68,8 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
                               .copyWith(color: Colors.grey),
                         ),
                         const Divider(),
-                        Table(
-                          border: TableBorder.all(color: Colors.black12),
-                          columnWidths: const <int, TableColumnWidth>{
-                            0: IntrinsicColumnWidth(),
-                            1: FlexColumnWidth(),
-                          },
-                          children: [
-                            TableRow(children: [
-                              const TableCell(
-                                  child: Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Специальность",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              )),
-                              TableCell(
-                                  child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(snapshot.data!.specialty.title),
-                              )),
-                            ]),
-                            TableRow(children: [
-                              const TableCell(
-                                  child: Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Text(
-                                  "Тип",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              )),
-                              TableCell(
-                                  child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child:
-                                    Text(snapshot.data!.specialty.cType ?? ""),
-                              )),
-                            ]),
-                          ],
+                        SkillCommonDataTableView(
+                          skill: snapshot.data!,
                         ),
                         Text(
                           'Описание',

@@ -1,3 +1,4 @@
+import 'package:edu_prof_app_flutter/elements/FAQExtendedListView.dart';
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
 import 'package:edu_prof_app_flutter/models/FAQ.dart';
 import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
@@ -37,10 +38,10 @@ class _FAQPageState extends State<FAQPage> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: FutureBuilder(
-                  future: FAQ.getSteps(),
+                  future: FAQ.getFAQList(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return FAQExtendedList(FAQlist: snapshot.data ?? []);
+                      return FAQExtendedListView(FAQlist: snapshot.data ?? []);
                     } else {
                       return const Center(child: CircularProgressIndicator());
                     }
@@ -54,56 +55,6 @@ class _FAQPageState extends State<FAQPage> {
         child: const Icon(Icons.question_answer),
         onPressed: () {},
       ),
-    );
-  }
-}
-
-class FAQExtendedList extends StatefulWidget {
-  final List<FAQ> FAQlist;
-  const FAQExtendedList({super.key, required this.FAQlist});
-
-  @override
-  State<FAQExtendedList> createState() => _FAQExtendedListState(faq: FAQlist);
-}
-
-class _FAQExtendedListState extends State<FAQExtendedList> {
-  final List<FAQ> _faqList;
-  _FAQExtendedListState({required List<FAQ> faq}) : _faqList = faq;
-
-  @override
-  Widget build(BuildContext context) {
-    return ExpansionPanelList(
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          _faqList[index].isExpanded = isExpanded;
-        });
-      },
-      children: _faqList.map<ExpansionPanel>((FAQ faqItem) {
-        return ExpansionPanel(
-            headerBuilder: (context, isExpanded) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  faqItem.q ?? '',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontWeight: FontWeight.bold),
-                ),
-              );
-            },
-            canTapOnHeader: true,
-            body: Column(
-              children: [
-                const Divider(),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(faqItem.a ?? ''),
-                )
-              ],
-            ),
-            isExpanded: faqItem.isExpanded);
-      }).toList(),
     );
   }
 }

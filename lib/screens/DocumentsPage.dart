@@ -55,11 +55,12 @@ class DocumentsPage extends StatelessWidget {
           head: Image.asset(
             "assets/faq-docs.jpg",
             height: 150,
-            // width: double.infinity,
             fit: BoxFit.cover,
           ),
+          // ignore: prefer_const_constructors
           body: Padding(
             padding: const EdgeInsets.all(8.0),
+            // ignore: prefer_const_constructors
             child: MarkdownBody(
               data: _content,
               selectable: true,

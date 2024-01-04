@@ -16,15 +16,7 @@ class FAQ {
     a = json['a'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['q'] = this.q;
-    data['a'] = this.a;
-    return data;
-  }
-
-  static Future<List<FAQ>> getSteps() async {
+  static Future<List<FAQ>> getFAQList() async {
     final url = Uri.parse('https://eduapp.dionisiubrovka.online/api/v1/faq/');
     final response = await http.get(url);
 
