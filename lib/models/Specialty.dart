@@ -58,7 +58,7 @@ class Specialty {
             fontFamily: 'FontAwesomeSolid',
             fontPackage: 'font_awesome_flutter');
       } else {
-        return const IconData(0xf501,
+        return IconData(value,
             fontFamily: 'FontAwesomeSolid',
             fontPackage: 'font_awesome_flutter');
       }

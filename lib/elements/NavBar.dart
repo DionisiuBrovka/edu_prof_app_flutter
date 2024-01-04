@@ -25,7 +25,7 @@ class NavBar extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           const UserAccountsDrawerHeader(
-            accountName: Text('АБИТУРИЕНТ'),
+            accountName: Text('АБИТУРИЕНТ МИНСК'),
             accountEmail: Text("Приложение помощник"),
             decoration: BoxDecoration(
                 image: DecorationImage(
@@ -155,7 +155,7 @@ class NavBar extends StatelessWidget {
             onTap: () => {
               showAboutDialog(
                   context: context,
-                  applicationName: 'Абитуриент',
+                  applicationName: 'Абитуриент Минск',
                   applicationVersion: '0.0.1a',
                   children: [const Text('разработал: Бровка Д.С.')],
                   applicationIcon: const Icon(Icons.ads_click_rounded))
