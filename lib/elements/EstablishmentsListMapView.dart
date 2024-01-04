@@ -1,6 +1,7 @@
 import 'package:edu_prof_app_flutter/models/Establishment.dart';
 import 'package:edu_prof_app_flutter/screens/EstablishmentsDetailPage.dart';
 import 'package:flutter_map_animations/flutter_map_animations.dart';
+import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -37,6 +38,7 @@ class _EstablishmentsListMapViewState extends State<EstablishmentsListMapView>
         TileLayer(
           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
           userAgentPackageName: 'com.example.app',
+          tileProvider: CancellableNetworkTileProvider(),
         ),
         FutureBuilder(
             future: Establishment.getAllObjectsList(),
