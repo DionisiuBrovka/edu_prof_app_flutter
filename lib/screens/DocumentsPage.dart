@@ -52,7 +52,6 @@ class DocumentsPage extends StatelessWidget {
       ),
       // ignore: prefer_const_constructors
       body: WideTemplate(
-          ebanuilist: false,
           head: Image.asset(
             "assets/faq-docs.jpg",
             height: 150,

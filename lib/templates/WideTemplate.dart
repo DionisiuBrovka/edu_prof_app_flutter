@@ -5,15 +5,9 @@ class WideTemplate extends StatelessWidget {
   final Widget? headFixed;
   final Widget? body;
   final Widget? bodyNoList;
-  bool ebanuilist = false;
 
-  WideTemplate(
-      {super.key,
-      this.head,
-      this.headFixed,
-      this.body,
-      this.bodyNoList,
-      required this.ebanuilist});
+  const WideTemplate(
+      {super.key, this.head, this.headFixed, this.body, this.bodyNoList});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +18,7 @@ class WideTemplate extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: headFixed == null ? 0 : 90),
             child: ListView(
-              physics: MediaQuery.of(context).size.width < 780 && ebanuilist
-                  ? const PageScrollPhysics()
-                  : null, //FIX !!!
+              physics: const ClampingScrollPhysics(),
               shrinkWrap: true,
               children: [
                 Column(

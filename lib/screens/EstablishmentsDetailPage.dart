@@ -46,7 +46,6 @@ class _EstablishmentsDetailPageState extends State<EstablishmentsDetailPage> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return WideTemplate(
-                  ebanuilist: false,
                   head: Stack(
                     children: [
                       Image.asset(

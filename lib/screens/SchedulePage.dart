@@ -37,7 +37,6 @@ class SchedulePage extends StatelessWidget {
       ),
       // ignore: prefer_const_constructors
       body: WideTemplate(
-          ebanuilist: false,
           head: Image.asset(
             "assets/faq-shudle.jpg",
             height: 150,

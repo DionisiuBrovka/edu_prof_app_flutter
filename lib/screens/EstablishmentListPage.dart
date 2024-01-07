@@ -1,7 +1,6 @@
 import 'package:edu_prof_app_flutter/elements/EstablishmentsListMapView.dart';
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
 import 'package:edu_prof_app_flutter/models/Establishment.dart';
-import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
 import 'package:edu_prof_app_flutter/viewHolders/EstablishmentViewHolder.dart';
 import 'package:flutter/material.dart';
 
@@ -39,11 +38,9 @@ class _EstablishmentListPageState extends State<EstablishmentListPage> {
         body: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            WideTemplate(
-                ebanuilist: false,
-                body: EstablishmentViewHolder(
-                  listDispatcher: Establishment.getAllObjectsList(),
-                )),
+            EstablishmentViewHolder(
+              listDispatcher: Establishment.getAllObjectsList(),
+            ),
             const EstablishmentsListMapView()
           ],
         ),

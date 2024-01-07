@@ -38,7 +38,6 @@ class _EstablishmentViewHolderState extends State<EstablishmentViewHolder> {
   @override
   Widget build(BuildContext context) {
     return WideTemplate(
-      ebanuilist: true,
       headFixed: CustomSearchBar(
         controller: _searchController,
         onTextChanged: _performSearch,
