@@ -32,6 +32,9 @@ class _EstablishmentsSkillTableState extends State<EstablishmentSkillTable> {
         scrollDirection: Axis.horizontal,
         children: [
           DataTable(
+              headingRowColor: MaterialStateColor.resolveWith(
+                  (states) => Theme.of(context).primaryColor),
+              headingTextStyle: const TextStyle(color: Colors.white),
               dataRowMinHeight: 20,
               dataRowMaxHeight: double.infinity,
               headingRowHeight: 60,
