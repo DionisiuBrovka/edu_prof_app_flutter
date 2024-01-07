@@ -35,6 +35,7 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
       body: WideTemplate(
+        ebanuilist: false,
         head: Image.asset(
           "assets/fon.png",
           height: 150,

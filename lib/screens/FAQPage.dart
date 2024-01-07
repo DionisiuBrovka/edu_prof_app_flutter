@@ -21,6 +21,7 @@ class _FAQPageState extends State<FAQPage> {
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
       body: WideTemplate(
+          ebanuilist: false,
           head: Image.asset(
             "assets/faq-back.jpg",
             height: 150,

@@ -20,6 +20,7 @@ class _EventsListPageState extends State<EventsListPage> {
         foregroundColor: Theme.of(context).primaryColorLight,
       ),
       body: WideTemplate(
+          ebanuilist: false,
           body: TableCalendar(
               locale: 'ru',
               firstDay: DateTime.utc(2010, 10, 16),

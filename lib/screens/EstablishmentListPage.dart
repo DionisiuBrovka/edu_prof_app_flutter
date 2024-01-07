@@ -40,9 +40,10 @@ class _EstablishmentListPageState extends State<EstablishmentListPage> {
           physics: const NeverScrollableScrollPhysics(),
           children: [
             WideTemplate(
+                ebanuilist: false,
                 body: EstablishmentViewHolder(
-              listDispatcher: Establishment.getAllObjectsList(),
-            )),
+                  listDispatcher: Establishment.getAllObjectsList(),
+                )),
             const EstablishmentsListMapView()
           ],
         ),

@@ -37,6 +37,7 @@ class _SkillViewHolderState extends State<SkillViewHolder> {
   @override
   Widget build(BuildContext context) {
     return WideTemplate(
+      ebanuilist: false,
       headFixed: CustomSearchBar(
         controller: _searchController,
         onTextChanged: _performSearch,

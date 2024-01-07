@@ -45,6 +45,7 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return WideTemplate(
+                  ebanuilist: false,
                   head: Image.asset(
                     'assets/back-skill.png',
                     height: 150,
