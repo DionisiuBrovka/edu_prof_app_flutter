@@ -44,17 +44,17 @@ class NavBar extends StatelessWidget {
                   return HomePage();
                 }));
               }),
-          ListTile(
-            leading: const Icon(Icons.star_outlined),
-            title: const Text('Избраное'),
-            onTap: () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(
-                  MaterialPageRoute<dynamic>(builder: (BuildContext context) {
-                return FavoritePage();
-              }));
-            },
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.star_outlined),
+          //   title: const Text('Избраное'),
+          //   onTap: () {
+          //     Navigator.of(context).pop();
+          //     Navigator.of(context).push(
+          //         MaterialPageRoute<dynamic>(builder: (BuildContext context) {
+          //       return FavoritePage();
+          //     }));
+          //   },
+          // ),
           ListTile(
             leading: const Icon(Icons.account_balance),
             title: const Text('Учреждение образования'),

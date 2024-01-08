@@ -1,6 +1,7 @@
 import 'package:edu_prof_app_flutter/elements/NavBar.dart';
 import 'package:edu_prof_app_flutter/models/Event.dart';
 import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
+import 'package:edu_prof_app_flutter/viewHolders/EventsViewHolder.dart';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -12,6 +13,8 @@ class EventsListPage extends StatefulWidget {
 }
 
 class _EventsListPageState extends State<EventsListPage> {
+  DateTime? selectedDay;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +32,22 @@ class _EventsListPageState extends State<EventsListPage> {
               return const Center(child: Text('Что то пошло не так ...'));
             } else if (snapshot.hasData) {
               return WideTemplate(
-                headFixed: CalendarView(
+                headFixedBig: CalendarView(
                   events: snapshot.data!,
+                ),
+                body: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      "Список мероприятий",
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    const Divider(),
+                    EventsViewHolderWithoutListDispatcher(
+                      events: snapshot.data!,
+                    ),
+                  ],
                 ),
               );
             } else {
@@ -44,7 +61,8 @@ class _EventsListPageState extends State<EventsListPage> {
 
 class CalendarView extends StatefulWidget {
   final List<Events> events;
-  const CalendarView({super.key, required this.events});
+  DateTime? sd;
+  CalendarView({super.key, required this.events, this.sd});
 
   @override
   State<CalendarView> createState() => _CalendarViewState();
@@ -56,7 +74,7 @@ class _CalendarViewState extends State<CalendarView> {
 
   @override
   void initState() {
-    _selectedDay = DateTime.now();
+    _selectedDay = null;
     _focusedDay = DateTime.now();
     super.initState();
   }
@@ -91,6 +109,7 @@ class _CalendarViewState extends State<CalendarView> {
       } else {
         _selectedDay = selectedDay;
         _focusedDay = focusedDay;
+        widget.sd = _selectedDay;
       }
     });
   }

@@ -3,7 +3,9 @@ import 'package:edu_prof_app_flutter/elements/EstablishmentContactsView.dart';
 import 'package:edu_prof_app_flutter/elements/EstablishmentGalleryView.dart';
 import 'package:edu_prof_app_flutter/elements/EstablishmentSkillTable.dart';
 import 'package:edu_prof_app_flutter/models/Establishment.dart';
+import 'package:edu_prof_app_flutter/models/Event.dart';
 import 'package:edu_prof_app_flutter/templates/WideTemplate.dart';
+import 'package:edu_prof_app_flutter/viewHolders/EventsViewHolder.dart';
 import 'package:flutter/material.dart';
 
 class EstablishmentsDetailPage extends StatefulWidget {
@@ -125,7 +127,19 @@ class _EstablishmentsDetailPageState extends State<EstablishmentsDetailPage> {
                           ),
                         ),
                         const SizedBox(
-                          height: 35,
+                          height: 25,
+                        ),
+                        Text(
+                          "Ближайшие мероприятия ${snapshot.data!.shortTitle}",
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                        const Divider(),
+                        EventsViewHolder(
+                            listDispatcher:
+                                Events.getObjectsForEstablishmentList(
+                                    snapshot.data!.id)),
+                        const SizedBox(
+                          height: 25,
                         ),
                         Text(
                           "План набора на 2024/2023 год",
