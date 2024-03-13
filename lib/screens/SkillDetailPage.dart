@@ -27,17 +27,17 @@ class _SkillDetailPageState extends State<SkillDetailPage> {
           backgroundColor: Theme.of(context).primaryColor,
           foregroundColor: Theme.of(context).primaryColorLight,
           actions: [
-            IconButton(
-              icon: _isFavorite
-                  ? const Icon(Icons.star)
-                  : const Icon(Icons.star_border),
-              tooltip: 'Добавить в избранное',
-              onPressed: () {
-                setState(() {
-                  _isFavorite = !_isFavorite;
-                });
-              },
-            ),
+            // IconButton(
+            //   icon: _isFavorite
+            //       ? const Icon(Icons.star)
+            //       : const Icon(Icons.star_border),
+            //   tooltip: 'Добавить в избранное',
+            //   onPressed: () {
+            //     setState(() {
+            //       _isFavorite = !_isFavorite;
+            //     });
+            //   },
+            // ),
           ],
         ),
         body: FutureBuilder(

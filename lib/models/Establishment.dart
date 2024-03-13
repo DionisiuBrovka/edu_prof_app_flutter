@@ -198,7 +198,10 @@ class Establishment {
             style: const TextStyle(fontWeight: FontWeight.bold),
           )),
           DataCell(Text(skill.isOpfr ? "Да \n(${skill.opfrQnic!}) " : "Нет")),
-          DataCell(Text("${skill.rule}")),
+          DataCell(Text(
+            skill.rule != null ? skill.rule!.toString() : " --- ",
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          )),
         ]));
       }
       return result;

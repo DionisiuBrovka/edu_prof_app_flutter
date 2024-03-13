@@ -30,17 +30,17 @@ class _EstablishmentsDetailPageState extends State<EstablishmentsDetailPage> {
           backgroundColor: Theme.of(context).primaryColor,
           foregroundColor: Theme.of(context).primaryColorLight,
           actions: [
-            IconButton(
-              icon: _isFavorite
-                  ? const Icon(Icons.star)
-                  : const Icon(Icons.star_border),
-              tooltip: 'Добавить в избранное',
-              onPressed: () {
-                setState(() {
-                  _isFavorite = !_isFavorite;
-                });
-              },
-            ),
+            // IconButton(
+            //   icon: _isFavorite
+            //       ? const Icon(Icons.star)
+            //       : const Icon(Icons.star_border),
+            //   tooltip: 'Добавить в избранное',
+            //   onPressed: () {
+            //     setState(() {
+            //       _isFavorite = !_isFavorite;
+            //     });
+            //   },
+            // ),
           ],
         ),
         body: FutureBuilder(
@@ -129,18 +129,18 @@ class _EstablishmentsDetailPageState extends State<EstablishmentsDetailPage> {
                         const SizedBox(
                           height: 25,
                         ),
-                        Text(
-                          "Ближайшие мероприятия ${snapshot.data!.shortTitle}",
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                        const Divider(),
-                        EventsViewHolder(
-                            listDispatcher:
-                                Events.getObjectsForEstablishmentList(
-                                    snapshot.data!.id)),
-                        const SizedBox(
-                          height: 25,
-                        ),
+                        // Text(
+                        //   "Ближайшие мероприятия ${snapshot.data!.shortTitle}",
+                        //   style: Theme.of(context).textTheme.headlineMedium,
+                        // ),
+                        // const Divider(),
+                        // EventsViewHolder(
+                        //     listDispatcher:
+                        //         Events.getObjectsForEstablishmentList(
+                        //             snapshot.data!.id)),
+                        // const SizedBox(
+                        //   height: 25,
+                        // ),
                         Text(
                           "План набора на 2024/2023 год",
                           style: Theme.of(context).textTheme.headlineMedium,
